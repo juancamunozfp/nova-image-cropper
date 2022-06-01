@@ -1,23 +1,11 @@
-const mix = require('laravel-mix')
+let mix = require('laravel-mix')
 let path = require('path');
+
+require('./nova.mix.js');
+
 mix
-  .js('resources/js/field.js', 'dist/js')
+  .setPublicPath('dist')
+  .js('resources/js/field.js', 'js')
+  .sass('resources/sass/field.scss', 'css')
   .vue({ version: 3})
-  .sass('resources/sass/field.scss', 'dist/css')
-  .setPublicPath('./')
-  .webpackConfig({
-    resolve: {
-      symlinks: false
-    }
-  })
-  .babelConfig({
-    plugins: [
-      [
-        'component',
-        {
-          libraryName: 'element-ui',
-          styleLibraryName: 'theme-chalk'
-        }
-      ]
-    ]
-  })
+  .nova('r64/nova-image-cropper')
