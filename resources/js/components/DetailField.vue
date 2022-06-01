@@ -1,12 +1,12 @@
 <template>
-  <panel-item :field="field">
+  <PanelItem :field="field">
     <div slot="value">
       <img
         :src="field.thumbnailUrl"
         :class="{ avatar: field.isAvatar }"
       />
     </div>
-  </panel-item>
+  </PanelItem>
 </template>
 
 <script>

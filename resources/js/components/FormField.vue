@@ -1,7 +1,7 @@
 <template>
-  <default-field :field="field">
-    <template slot="field">
-      <loading-view :loading="deleting">
+  <DefaultField :field="field">
+    <template #field>
+      <LoadingView :loading="deleting">
         <div class="picker-wrapper">
           <PicturePicker
             ref="picturePicker"
@@ -45,13 +45,13 @@
             </transition>
           </portal>
         </div>
-      </loading-view>
+      </LoadingView>
     </template>
-  </default-field>
+  </DefaultField>
 </template>
 
 <script>
-import { FormField, HandlesValidationErrors, Errors } from 'laravel-nova'
+import { FormField, HandlesValidationErrors, Errors } from '../../../vendor/laravel/nova/resources/js/mixins/packages'
 import { UrlToBase64 } from '../utils/image'
 import PicturePicker from './PicturePicker'
 
